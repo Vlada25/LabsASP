@@ -1,5 +1,6 @@
 ﻿using Lab2.DAL.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace Lab2.DAL.Repositories
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         protected AppDbContext dbContext;
+        protected const int CachingTime = 31 * 2 + 240;
 
         public RepositoryBase(AppDbContext dbContext)
         {
             this.dbContext = dbContext;
+
         }
 
         public async Task CreateEntities(IEnumerable<T> entities)
@@ -24,16 +27,16 @@ namespace Lab2.DAL.Repositories
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task CreateEntity(T entity)
+        public async Task<int> CreateEntity(T entity)
         {
             await dbContext.Set<T>().AddAsync(entity);
-            await dbContext.SaveChangesAsync();
+            return await dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteEntity(T entity)
+        public async Task<int> DeleteEntity(T entity)
         {
             dbContext.Set<T>().Remove(entity);
-            await dbContext.SaveChangesAsync();
+            return await dbContext.SaveChangesAsync();
         }
 
         public IQueryable<T> GetAllEntities(bool trackChanges)

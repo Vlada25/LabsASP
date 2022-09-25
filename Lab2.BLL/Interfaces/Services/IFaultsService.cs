@@ -11,6 +11,7 @@ namespace Lab2.BLL.Interfaces.Services
     public interface IFaultsService
     {
         Task<IEnumerable<FaultDto>> GetAll();
+        Task<IEnumerable<FaultDto>> Get(int rowsCount, string cacheKey);
         Task<FaultDto> GetById(Guid id);
         Task Create(FaultForCreationDto entityForCreation);
         Task Create(IEnumerable<Fault> entityForCreation);

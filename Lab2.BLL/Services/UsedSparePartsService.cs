@@ -46,6 +46,13 @@ namespace Lab2.BLL.Services
             await _repositoryManager.UsedSparePartsRepository.Delete(entity);
         }
 
+        public async Task<IEnumerable<UsedSparePartDto>> Get(int rowsCount, string cacheKey)
+        {
+            var usedSpareParts = await _repositoryManager.UsedSparePartsRepository.Get(rowsCount, cacheKey);
+
+            return _mapper.Map<IEnumerable<UsedSparePartDto>>(usedSpareParts);
+        }
+
         public async Task<IEnumerable<UsedSparePartDto>> GetAll()
         {
             var usedSpareParts = await _repositoryManager.UsedSparePartsRepository.GetAll(false);

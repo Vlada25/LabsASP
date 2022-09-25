@@ -1,6 +1,7 @@
 ﻿using Lab2.DAL.Interfaces;
 using Lab2.DAL.Interfaces.Repositories;
 using Lab2.DAL.Repositories;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,17 @@ namespace Lab2.DAL
     public class RepositoryManager : IRepositoryManager
     {
         private AppDbContext _dbContext;
+        private IMemoryCache _memoryCache;
 
         private IFaultsRepository _faultsRepository;
         private IRepairingModelsRepository _repairingModelsRepository;
         private ISparePartsRepository _sparePartsRepository;
         private IUsedSparePartsRepository _usedSparePartsRepository;
 
-        public RepositoryManager(AppDbContext dbContext)
+        public RepositoryManager(AppDbContext dbContext, IMemoryCache memoryCache)
         {
             _dbContext = dbContext;
+            _memoryCache = memoryCache;
         }
 
 
@@ -30,7 +33,7 @@ namespace Lab2.DAL
             {
                 if (_faultsRepository == null)
                 {
-                    _faultsRepository = new FaultsRepository(_dbContext);
+                    _faultsRepository = new FaultsRepository(_dbContext, _memoryCache);
                 }
                 return _faultsRepository;
             }
@@ -43,7 +46,7 @@ namespace Lab2.DAL
             {
                 if (_sparePartsRepository == null)
                 {
-                    _sparePartsRepository = new SparePartsRepository(_dbContext);
+                    _sparePartsRepository = new SparePartsRepository(_dbContext, _memoryCache);
                 }
                 return _sparePartsRepository;
             }
@@ -55,7 +58,7 @@ namespace Lab2.DAL
             {
                 if (_repairingModelsRepository == null)
                 {
-                    _repairingModelsRepository = new RepairingModelsRepository(_dbContext);
+                    _repairingModelsRepository = new RepairingModelsRepository(_dbContext, _memoryCache);
                 }
                 return _repairingModelsRepository;
             }
@@ -67,7 +70,7 @@ namespace Lab2.DAL
             {
                 if (_usedSparePartsRepository == null)
                 {
-                    _usedSparePartsRepository = new UsedSparePartsRepository(_dbContext);
+                    _usedSparePartsRepository = new UsedSparePartsRepository(_dbContext, _memoryCache);
                 }
                 return _usedSparePartsRepository;
             }

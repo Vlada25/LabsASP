@@ -46,6 +46,13 @@ namespace Lab2.BLL.Services
             await _repositoryManager.RepairingModelsRepository.Delete(entity);
         }
 
+        public async Task<IEnumerable<RepairingModelDto>> Get(int rowsCount, string cacheKey)
+        {
+            var repairingModels = await _repositoryManager.RepairingModelsRepository.Get(rowsCount, cacheKey);
+
+            return _mapper.Map<IEnumerable<RepairingModelDto>>(repairingModels);
+        }
+
         public async Task<IEnumerable<RepairingModelDto>> GetAll()
         {
             var repairingModels = await _repositoryManager.RepairingModelsRepository.GetAll(false);
