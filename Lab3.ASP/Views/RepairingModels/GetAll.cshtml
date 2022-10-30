@@ -1,0 +1,34 @@
+﻿@model List<RepairingModelDto>
+
+@{
+    ViewData["Title"] = "Repairing Models";
+}
+
+<div>
+    <h3 class="h3-above-table">Repairing Models</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Manufacturer</th>
+                <th>Specifications</th>
+                <th>ParticularQualities</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var repairingModel in @Model)
+            {
+                <tr>
+                    <td>@repairingModel.Id</td>
+                    <td>@repairingModel.Name</td>
+                    <td>@repairingModel.Manufacturer</td>
+                    <td>@repairingModel.Specifications</td>
+                    <td>@repairingModel.ParticularQualities</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="back-btn" href="/Home/Index">Back</a>
+</div>

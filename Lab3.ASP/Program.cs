@@ -7,6 +7,12 @@ using Lab3.ASP.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers(config =>
+{
+    config.RespectBrowserAcceptHeader = true;
+    config.ReturnHttpNotAcceptable = true;
+}).AddNewtonsoftJson();
+
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.ConfigureDbServices();
 
@@ -21,31 +27,21 @@ builder.Services.AddSingleton(autoMapper);
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
+builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
+
+app.UseStaticFiles();
+app.UseRouting();
 
 app.UseSession();
 
-app.Map("/Faults", Endpoints.FaultsTable);
-app.Map("/RepairingModels", Endpoints.RepairingModelsTable);
-app.Map("/SpareParts", Endpoints.SparePartsTable);
-app.Map("/UsedSpareParts", Endpoints.UsedSparePartsTable);
-app.Map("/Info", Endpoints.Info);
-app.Map("/SearchFaults", Endpoints.FaultsTableSearch);
-app.Map("/SearchRepairingModels", Endpoints.RepairingModelTableSearch);
+app.Map("/FillTables", Endpoints.FillTables);
 
-app.MapGet("/", async context =>
-{
-    string htmlString = Endpoints.GetHtmlTemplate("Index", 
-        "<a href=\"/Faults\">Faults</a>" +
-        "<a href=\"/RepairingModels\">RepairingModels</a>" +
-        "<a href=\"/SpareParts\">SpareParts</a>" +
-        "<a href=\"/UsedSpareParts\">UsedSpareParts</a>" +
-        "<a href=\"/Info\" class=\"bg-yellow\">Info</a>" +
-        "<a href=\"/SearchFaults\" class=\"bg-green\">Search Faults</a>" +
-        "<a href=\"/SearchRepairingModels\" class=\"bg-green\">Search Repairing Models</a>");
-
-    await context.Response.WriteAsync(htmlString);
-});
+app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}");
 
 app.Run();
 

@@ -407,7 +407,7 @@ namespace Lab2.DAL
                 });
             }
 
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 int faultIndex = new Random((int)DateTime.Now.Ticks + i).Next(500);
                 var fault = Faults[faultIndex];
