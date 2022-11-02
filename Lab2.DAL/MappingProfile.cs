@@ -5,11 +5,6 @@ using Lab2.DTO.Fault;
 using Lab2.DTO.RepairingModel;
 using Lab2.DTO.SparePart;
 using Lab2.DTO.UsedSparePart;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab2.DAL
 {

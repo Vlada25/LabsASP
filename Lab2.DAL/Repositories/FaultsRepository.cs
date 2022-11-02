@@ -2,20 +2,15 @@
 using Lab2.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab2.DAL.Repositories
 {
     public class FaultsRepository : RepositoryBase<Fault>, IFaultsRepository
     {
-        private readonly IMemoryCache _memoryCache; 
+        private readonly IMemoryCache _memoryCache;
 
-        public FaultsRepository(AppDbContext dbContext, IMemoryCache memoryCache)
-            : base(dbContext) 
+        public FaultsRepository(ApplicationDbContext dbContext, IMemoryCache memoryCache)
+            : base(dbContext)
         {
             _memoryCache = memoryCache;
         }
@@ -32,7 +27,7 @@ namespace Lab2.DAL.Repositories
                 });
             }
         }
-            
+
 
         public async Task Create(IEnumerable<Fault> entities) =>
             await CreateEntities(entities);
@@ -80,7 +75,7 @@ namespace Lab2.DAL.Repositories
 
             return entity;
         }
-            
+
 
         public async Task Update(Fault entity) =>
             await UpdateEntity(entity);

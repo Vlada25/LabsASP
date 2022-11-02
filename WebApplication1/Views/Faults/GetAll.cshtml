@@ -1,0 +1,36 @@
+﻿@model List<FaultDto>
+
+@{
+    ViewData["Title"] = "Faults";
+}
+
+<div>
+    <h3 class="h3-above-table">Faults</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Repairing Model Name</th>
+                <th>Repairing Model Specifications</th>
+                <th>Repairing Methods</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fault in @Model)
+            {
+                <tr>
+                    <td>@fault.Id</td>
+                    <td>@fault.Name</td>
+                    <td>@fault.RepairingModelName</td>
+                    <td>@fault.RepairingModelSpecifications</td>
+                    <td>@fault.RepairingMethods</td>
+                    <td>@fault.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="back-btn" href="/Home/Index">Back</a>
+</div>

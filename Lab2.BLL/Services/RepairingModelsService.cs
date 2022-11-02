@@ -3,11 +3,6 @@ using Lab2.BLL.Interfaces.Services;
 using Lab2.DAL.Interfaces;
 using Lab2.DAL.Models;
 using Lab2.DTO.RepairingModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab2.BLL.Services
 {

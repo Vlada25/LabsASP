@@ -1,0 +1,30 @@
+﻿@model List<UsedSparePartDto>
+
+@{
+    ViewData["Title"] = "Used Spare Parts";
+}
+
+<div>
+    <h3 class="h3-above-table">UsedSpareParts</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fault Name</th>
+                <th>Spare Part Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var UsedSparePart in @Model)
+            {
+                <tr>
+                    <td>@UsedSparePart.Id</td>
+                    <td>@UsedSparePart.FaultName</td>
+                    <td>@UsedSparePart.SparePartName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="back-btn" href="/Home/Index">Back</a>
+</div>

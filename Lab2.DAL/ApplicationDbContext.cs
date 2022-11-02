@@ -1,19 +1,17 @@
-﻿using Lab2.DAL.Configuration;
+﻿using Lab2.DAL;
+using Lab2.DAL.Configuration;
 using Lab2.DAL.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab2.DAL
 {
-    public class AppDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options) { }
-
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
 
         public DbSet<Fault> Faults { get; set; }
         public DbSet<RepairingModel> RepairingModels { get; set; }
@@ -24,13 +22,12 @@ namespace Lab2.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            /*
             DbInitializer.Initialize();
 
             modelBuilder.ApplyConfiguration(new FaultsConfig());
             modelBuilder.ApplyConfiguration(new RepairingModelsConfig());
             modelBuilder.ApplyConfiguration(new SparePartsConfig());
-            modelBuilder.ApplyConfiguration(new UsedSparePartsConfig()); */
+            modelBuilder.ApplyConfiguration(new UsedSparePartsConfig());
         }
     }
 }

@@ -2,11 +2,6 @@
 using Lab2.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab2.DAL.Repositories
 {
@@ -14,8 +9,8 @@ namespace Lab2.DAL.Repositories
     {
         private readonly IMemoryCache _memoryCache;
 
-        public SparePartsRepository(AppDbContext dbContext, IMemoryCache memoryCache)
-            : base(dbContext) 
+        public SparePartsRepository(ApplicationDbContext dbContext, IMemoryCache memoryCache)
+            : base(dbContext)
         {
             _memoryCache = memoryCache;
         }

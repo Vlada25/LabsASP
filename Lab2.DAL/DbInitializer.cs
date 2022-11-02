@@ -19,19 +19,19 @@ namespace Lab2.DAL
 
         private readonly static Dictionary<EquipmentType, string[]> _specifications = new Dictionary<EquipmentType, string[]>
         {
-            {EquipmentType.Refrigerator, new string[] 
+            {EquipmentType.Refrigerator, new string[]
                 {
                     "Type: refrigerator with freezer, Cameras: freezer, refrigerator, Energy class: A, Noise level: 40 dB",
                     "Type: refrigerator, Cameras: refrigerator, Energy class: A, Noise level: 40 dB",
                     "Type: freezer, Cameras: freezer, Energy class: A, Noise level: 40 dB"
-                } 
+                }
             },
-            {EquipmentType.CoffeeMachine, new string[] 
+            {EquipmentType.CoffeeMachine, new string[]
                 {
                     "Power: 1450 W, Temperature control: yes, Remote control: no, Water tank: 1.8 l",
                     "Power: 1500 W, Temperature control: yes, Remote control: yes, Water tank: 2 l",
                     "Power: 1400 W, Temperature control: no, Remote control: no, Water tank: 1.5 l"
-                } 
+                }
             },
             {EquipmentType.Television, new string[]
                 {
@@ -139,7 +139,7 @@ namespace Lab2.DAL
 
         private readonly static Dictionary<EquipmentType, string[]> _faultsRepairingMethods = new Dictionary<EquipmentType, string[]>
         {
-            {EquipmentType.Refrigerator, new string[] 
+            {EquipmentType.Refrigerator, new string[]
                 {
                     "Refrigerator won't turn on*" +
                         "If the voltage is higher or lower than the specified range, then the refrigerator may simply not turn on. " +
@@ -159,7 +159,7 @@ namespace Lab2.DAL
                     "Refrigerator is too cold*" +
                         "Quick Freeze button not turned off. To fix the problem, you just need to turn off the fast freeze mode. " +
                         "The thermostat is set to maximum. Move the thermostat to a less intensive cooling position and make sure that it is normally held in this position."
-                } 
+                }
             },
             {EquipmentType.CoffeeMachine, new string[]
                 {
@@ -373,7 +373,7 @@ namespace Lab2.DAL
             {
                 int repairingModelIndex = new Random((int)DateTime.Now.Ticks + i).Next(RepairingModels.Count);
                 decimal price = new Random((int)DateTime.Now.Ticks + i).Next(25, 347);
-                
+
                 RepairingModel repairingModel = RepairingModels[repairingModelIndex];
                 string[] faultsRepMethods = _faultsRepairingMethods[repairingModel.Type];
 

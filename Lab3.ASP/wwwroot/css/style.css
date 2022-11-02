@@ -1,62 +1,62 @@
-﻿body {
-    margin: 0;
-    padding: 0;
-    background-color: #E3F2FF;
-    font-family: sans-serif;
-    color: #272773;
-}
-
-header {
-    padding: 20px 3% 20px 3%;
-    background-color: #C9DFFF;
-}
-
-h2 {
-    font-weight: normal;
-    margin: 0;
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-    color: #272773;
+﻿.sign-out-btn {
     display: block;
-    border: 1px solid #272773;
-    border-radius: 5px;
-    width: 250px;
-    padding: 5px 0 5px 0;
-    margin-top: 10px;
+    width: 100px;
     text-align: center;
-    font-size: 110%;
+    padding: 7px 0 7px 0;
+    border: 1px solid #272773;
+    background-color: none;
+    border-radius: 5px;
+    transition: all 0.3s;
 }
 
-#main {
-    padding: 0 3% 0 3%;
+.sign-out-btn:hover {
+    background-color: #272773;
+    color: white;
+    transition: all 0.3s;
 }
 
-﻿.header-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.main-menu {
-    display: flex;
-    flex-direction: column;
+.auth-btn {
+    display: block;
+    width: 200px;
     margin-top: 30px;
-    align-items: center;
+    text-align: center;
+    font-size: 130%;
+    padding: 7px 0 7px 0;
+    border: 1px solid #272773;
+    background-color: none;
+    border-radius: 5px;
+    transition: all 0.3s;
 }
 
-.h3-above-table {
-    margin-left: 1%;
+.auth-btn:hover {
+    background-color: #272773;
+    color: white;
+    transition: all 0.3s;
+}
+
+.action-btn {
+    width: 100px;
+    text-align: center;
+    padding: 7px 0 7px 0;
+    border: 1px solid #272773;
+    margin-right: 15px;
+    background-color: #C9DFFF;
+    color: #272773;
+    font-size: 100%;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #272773;
+    color: white;
+    transition: all 0.3s;
 }
 
 .back-btn {
     position: fixed;
-    left: 50px;
-    top: 5px;
+    right: 160px;
+    top: 20px;
     display: block;
     width: 100px;
     text-align: center;
@@ -71,6 +71,159 @@ a {
     background-color: #272773;
     color: white;
     transition: all 0.3s;
+}
+
+﻿.header-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start-page-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.action-btn-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: #272773;
+}
+
+.index-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.user-info-container {
+    box-sizing: border-box;
+    padding-right: 100px;
+    font-size: 110%;
+    border-right: 1px solid #272773;
+}
+
+﻿﻿﻿.creation-form input {
+    width: 500px;
+    margin-top: 5px;
+}
+
+.getting-form {
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+
+.getting-form input {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-props {
+    width: 300px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+.select-props {
+    width: 350px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: #E3F2FF;
+    font-family: sans-serif;
+    color: #272773;
+}
+
+header {
+    padding: 20px 3% 20px 3%;
+    background-color: #C9DFFF;
+}
+
+h1 {
+    font-weight: normal;
+    margin: 0;
+}
+
+h2 {
+    font-weight: normal;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #272773;
+}
+
+﻿.error-mes-span {
+    margin-left: 5px;
+    font-size: 90%;
+    color: red;
+}
+
+.h3-above-table {
+    margin-left: 1%;
+}
+
+#main {
+    padding: 0 3% 0 3%;
+}
+
+.a_addit {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+.main-menu{
+    width: 30%;
+    margin: 0 0 0 100px;
+    padding: 0;
+    list-style: none;
+}
+
+.main-menu li {
+    padding: 10px 20px 10px 20px;
+    margin-top: 5px;
+    background-color: #C9DFFF;
+    border-radius: 5px;
+    font-size: 120%;
+}
+
+img {
+    width: 100px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #272773;
 }
 
 ﻿.table {

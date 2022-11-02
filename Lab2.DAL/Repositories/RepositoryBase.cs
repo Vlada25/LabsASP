@@ -1,21 +1,15 @@
 ﻿using Lab2.DAL.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab2.DAL.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        protected AppDbContext dbContext;
+        protected ApplicationDbContext dbContext;
         protected const int CachingTime = 31 * 2 + 240;
 
-        public RepositoryBase(AppDbContext dbContext)
+        public RepositoryBase(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
 
